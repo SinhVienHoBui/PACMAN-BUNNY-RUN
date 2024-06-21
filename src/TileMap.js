@@ -1,3 +1,8 @@
+/* Name: Bui Nhu Y
+   ID: ITCSIU21247
+   Purpose: creating and managing a tile-based game map.
+*/
+
 import Rabbit from "./Rabbit.js";
 import Wolf from "./Wolf.js";
 import MovingDirection from "./MovingDirection.js";

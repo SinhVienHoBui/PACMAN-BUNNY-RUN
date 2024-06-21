@@ -1,3 +1,8 @@
+/* Name: Bui Nhu Y
+   ID: ITCSIU21247
+   Purpose: defines the Wolf class, representing the enemy character.
+*/
+
 import MovingDirection from "./MovingDirection.js";
 import {pacman} from "./Game.js"
 import { dijkstra } from "./dijkstra.js"; 
@@ -87,14 +92,14 @@ export default class Wolf{
 
   #setImage(ctx, pacman) {
     if (pacman.powerDotActive) {
-      this.#setImageWhenPowerDotIsActive(pacman);
+      this.#setImageWhenGoldCarrotIsActive(pacman);
     } else {
       this.image = this.normalGhost;
     }
     ctx.drawImage(this.image, this.x, this.y, this.tileSize, this.tileSize);
   }
 
-  #setImageWhenPowerDotIsActive(pacman) {
+  #setImageWhenGoldCarrotIsActive(pacman) {
     if (pacman.powerDotAboutToExpire) {
       this.scaredAboutToExpireTimer--;
       if (this.scaredAboutToExpireTimer === 0) {

@@ -1,3 +1,8 @@
+/* Name: Bui Nhu Y
+   ID: ITCSIU21247
+   Purpose: implement the main game logic, managing game states.
+*/
+
 import TileMap from "./TileMap.js";
 import MovingDirection from "./MovingDirection.js";
 import { dijkstra } from "./dijkstra.js"; 

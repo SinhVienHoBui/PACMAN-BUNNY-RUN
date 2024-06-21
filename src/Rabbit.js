@@ -1,3 +1,8 @@
+/* Name: Bui Nhu Y
+   ID: ITCSIU21247
+   Purpose: define the Rabbit class, which represents the main character.
+*/
+
 import MovingDirection from "./MovingDirection.js";
 
 
@@ -73,13 +78,6 @@ export default class Rabbit {
 
         ctx.restore();
 
-
-
-        //ctx.drawImage(this.pacmanImages[this.pacmanImageIndex],
-            //this.x,
-            //this.y,
-            //this.tileSize,
-            //this.tileSize)
     }
 
     #loadPacmanImages(){
@@ -206,6 +204,9 @@ export default class Rabbit {
 
     #eatCarrot(){
         if(this.tileMap.eatCarrot(this.x,this.y)){
+            //play sound
+            
+            //this.wakaSound.play();         
         }
     }
 

@@ -1,3 +1,8 @@
+/* Name: Bui Nhu Y
+   ID: ITCSIU21247
+   Purpose:  implement the Dijkstra algorithm for pathfinding.
+*/
+
 class Node {
     constructor(x, y) {
       this.x = x;
