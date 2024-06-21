@@ -40,6 +40,7 @@ export default class TileMap { //By exporting the class as default, it can be im
     this.powerDotAnmationTimerDefault = 30;
     this.powerDotAnmationTimer = this.powerDotAnmationTimerDefault;
   }
+
   map = [ [ 1, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11,  2], 
           [12,  6,  0,  0,  0,  0,  0,  0,  0,  0,  0,  6,  0,  0,  0,  0,  0,  0,  0, 12], 
           [12,  0,  1, 11, 11, 11, 11, 11, 11, 11, 11, 15,  0, 14, 11, 11, 11, 15,  0, 12], 
