@@ -91,7 +91,7 @@ export default class Wolf{
 
 
   #setImage(ctx, pacman) {
-    if (pacman.powerDotActive) {
+    if (pacman.goldCarrotActive) {
       this.#setImageWhenGoldCarrotIsActive(pacman);
     } else {
       this.image = this.normalGhost;
@@ -100,7 +100,7 @@ export default class Wolf{
   }
 
   #setImageWhenGoldCarrotIsActive(pacman) {
-    if (pacman.powerDotAboutToExpire) {
+    if (pacman.goldCarrotAboutToExpire) {
       this.scaredAboutToExpireTimer--;
       if (this.scaredAboutToExpireTimer === 0) {
         this.scaredAboutToExpireTimer = this.scaredAboutToExpireTimerDefault;

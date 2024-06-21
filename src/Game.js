@@ -31,6 +31,8 @@ let score = 0;
 let lives = 3;
 
 // sound
+const gameOverSound = new Audio("/sounds/gameOver.wav");
+const gameWinSound = new Audio("/sounds/start.ogg");
 
 function gameLoop(){ // redraw the screen certain number of times every 1 second
     tileMap.draw(ctx);
@@ -87,8 +89,8 @@ function checkGameWin() {
       pacman.x += pacman.velocity * 20;
     }
   }
-function PowerDotActive(pacman){
-   return pacman.powerDotActive;
+function goldCarrotActive(pacman){
+   return pacman.goldCarrotActive;
 }
   
 
@@ -125,7 +127,7 @@ function PowerDotActive(pacman){
   function update() {
     enemies.forEach((enemy) => {
       if (enemy.collideWith(pacman)) {
-        if(PowerDotActive(pacman) == false){
+        if(goldCarrotActive(pacman) == false){
        
           MovingAfterCollision(pacman);  
           onGhostCollision();

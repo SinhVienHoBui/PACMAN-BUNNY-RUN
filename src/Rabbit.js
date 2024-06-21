@@ -21,11 +21,10 @@ export default class Rabbit {
         this.pacmanAnimationTimer = null;
 
         this.pacmanRotation = this.Rotation.right;
-        this.wakaSound = new Audio ('../sounds/waka.wav');
 
-        this.powerDotSound = new Audio("sounds/power_dot.wav");
-        this.powerDotActive = false;
-        this.powerDotAboutToExpire = false;
+        this.goldCarrotSound = new Audio("sounds/power.wav");
+        this.goldCarrotActive = false;
+        this.goldCarrotAboutToExpire = false;
         this.timers =[];
    
 
@@ -36,7 +35,7 @@ export default class Rabbit {
          this.timer1 = [];
 
 
-        this.eatGhostSound = new Audio("sounds/eat_ghost.wav");
+        this.eatGhostSound = new Audio("sounds/eat_wolf.wav");
 
         this.madeFirstMove = false;
 
@@ -77,6 +76,7 @@ export default class Rabbit {
         );
 
         ctx.restore();
+
 
     }
 
@@ -203,10 +203,8 @@ export default class Rabbit {
     }
 
     #eatCarrot(){
-        if(this.tileMap.eatCarrot(this.x,this.y)){
-            //play sound
-            
-            //this.wakaSound.play();         
+        if(this.tileMap.eatCarrot(this.x,this.y)){  
+            this.goldCarrotSound.play(); 
         }
     }
 
@@ -215,25 +213,25 @@ export default class Rabbit {
 
     #eatGoldCarrot() {
         if (this.tileMap.eatGoldCarrot(this.x, this.y)) {
-          this.powerDotSound.play();
-          this.powerDotActive = true;
-          this.powerDotAboutToExpire = false;
+          this.goldCarrotSound.play();
+          this.goldCarrotActive = true;
+          this.goldCarrotAboutToExpire = false;
           this.timers.forEach((timer) => clearTimeout(timer));
           this.timers = [];
     
-          let powerDotTimer = setTimeout(() => {
+          let goldCarrotTimer = setTimeout(() => {
             
-            this.powerDotAboutToExpire = false;
+            this.goldCarrotAboutToExpire = false;
           }, 1000 * 6);
     
-          this.timers.push(powerDotTimer);
+          this.timers.push(goldCarrotTimer);
     
-          let powerDotAboutToExpireTimer = setTimeout(() => {
-            this.powerDotActive = false;
-            this.powerDotAboutToExpire = true;
+          let goldCarrotAboutToExpireTimer = setTimeout(() => {
+            this.goldCarrotActive = false;
+            this.goldCarrotAboutToExpire = true;
           }, 1000 * 3);
     
-          this.timers.push(powerDotAboutToExpireTimer);
+          this.timers.push(goldCarrotAboutToExpireTimer);
         }
       }
 
@@ -241,7 +239,7 @@ export default class Rabbit {
     
     
       #eatGhost(enemies) {
-        if (this.powerDotActive) {
+        if (this.goldCarrotActive) {
           const collideEnemies = enemies.filter((enemy) => enemy.collideWith(this));
           collideEnemies.forEach((enemy) => {
             enemies.splice(enemies.indexOf(enemy), 1);
@@ -255,7 +253,7 @@ export default class Rabbit {
 
   #speedUp(){
     if(this.tileMap.speedUp(this.x, this.y)){
-        this.powerDotSound.play();
+        this.goldCarrotSound.play();
         
         this.heartActive = true;
         this.heartAboutToExpire =false;

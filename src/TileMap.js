@@ -41,9 +41,9 @@ export default class TileMap { //By exporting the class as default, it can be im
     this.heartAnimationTimerDefault = 10;
     this.heartAnimationTimer = this.heartAnimationTimerDefault;
 
-    this.powerDot = this.pinkDot;
-    this.powerDotAnmationTimerDefault = 30;
-    this.powerDotAnmationTimer = this.powerDotAnmationTimerDefault;
+    this.goldCarrot = this.pinkDot;
+    this.goldCarrotAnmationTimerDefault = 30;
+    this.goldCarrotAnmationTimer = this.goldCarrotAnmationTimerDefault;
   }
 
   map = [ [ 1, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11,  2], 
@@ -73,7 +73,7 @@ export default class TileMap { //By exporting the class as default, it can be im
       0: this.#drawDot,
       1: this.#drawCorner1,
       2: this.#drawCorner2,
-      6: this.#drawPowerDot,
+      6: this.#drawgoldCarrot,
       8: this.#drawCorner3,
       10: this.#drawCorner4,
       11: this.#drawHorizontal,
@@ -149,17 +149,17 @@ export default class TileMap { //By exporting the class as default, it can be im
     this.#drawTile(ctx, this.blockTop, column, row, size);
   }
 
-  #drawPowerDot(ctx, column, row, size) {
-    this.powerDotAnmationTimer--;
-    if (this.powerDotAnmationTimer === 0) {
-      this.powerDotAnmationTimer = this.powerDotAnmationTimerDefault;
-      if (this.powerDot == this.pinkDot) {
-        this.powerDot = this.yellowDot;
+  #drawgoldCarrot(ctx, column, row, size) {
+    this.goldCarrotAnmationTimer--;
+    if (this.goldCarrotAnmationTimer === 0) {
+      this.goldCarrotAnmationTimer = this.goldCarrotAnmationTimerDefault;
+      if (this.goldCarrot == this.pinkDot) {
+        this.goldCarrot = this.yellowDot;
       } else {
-        this.powerDot = this.pinkDot;
+        this.goldCarrot = this.pinkDot;
       }
     }
-    ctx.drawImage(this.powerDot, column * size, row * size, size, size);
+    ctx.drawImage(this.goldCarrot, column * size, row * size, size, size);
   }
 
   #drawBlank(ctx, column, row, size) {
