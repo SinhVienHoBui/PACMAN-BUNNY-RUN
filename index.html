@@ -85,7 +85,11 @@
   
    
 
-   <script src="src/close.js"></script>
+   <script>
+    document.getElementById('closeButton').addEventListener('click', function() {
+    window.close(); 
+    });
+   </script>
    <script src="src/Game.js" type="module"></script>
 </body>
 </html>
