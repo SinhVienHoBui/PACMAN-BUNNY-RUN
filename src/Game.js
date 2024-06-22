@@ -66,7 +66,6 @@ function checkGameWin() {
   
   function isGameOver() {
     return enemies.some(
-      // (enemy) => !pacman.powerDotActive && enemy.collideWith(pacman)
       (enemy) => lives == 0
 
     );
@@ -106,7 +105,7 @@ function goldCarrotActive(pacman){
 
   function drawRemainingLives() {
     ctx.font = "20px gemunu libre";
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "rgb(214, 16, 9)";
     ctx.fillText("      Lives:", 5, canvas.height - 10);
     for (let i = 0; i < lives; i++) {
       ctx.fillText("❤️", 70 + i * 20, canvas.height - 10);

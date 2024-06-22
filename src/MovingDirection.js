@@ -1,6 +1,6 @@
 /* Name: Bui Nhu Y
    ID: ITCSIU21247
-   Purpose: define and export an enumeration, which represents the possible movement directions.
+   Purpose: define and export a enum, which represents the possible movement directions.
 */
 
 const MovingDirection = {

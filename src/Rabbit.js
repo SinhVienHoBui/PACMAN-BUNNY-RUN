@@ -109,7 +109,7 @@ export default class Rabbit {
         if(k == 38 || k == 87){
             if(this.currentMovingDirection == MovingDirection.down)
             this.currentMovingDirection == MovingDirection.up;
-            this.requestedMovingDirection = MovingDirection.up; //allow to move or not
+            this.requestedMovingDirection = MovingDirection.up;
             this.madeFirstMove = true;
         }
         //bottom arrow or s
